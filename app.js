@@ -18,8 +18,7 @@ var fs = require('fs');
 var client_id = 'blah'; // Your client id
 var client_secret = 'blah'; // Your client secret
 var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
-var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database('tracks.db');
+
 app.use(express.static('public'));
 
 /**
