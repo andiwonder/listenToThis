@@ -16,9 +16,9 @@ var ejs = require("ejs");
 var fs = require('fs');
 var bodyParser = require('body-parser');
 
-var client_id = 'bea5abbf99764aa8b25ca9850a24783e'; // Your client id
-var client_secret = '82db5fa7525d4369ad543ad6035017bf'; // Your client secret
-var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
+var client_id = process.env.SPOTIFY_ID; // Your client id
+var client_secret = process.env.SPOTIFY_SECRET; // Your client secret
+var redirect_uri = 'http://159.203.86.157:8888/callback'; // Your redirect uri
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('tracks.db');
 
@@ -383,7 +383,7 @@ app.post('/blogs', function(req,res){
             }
           });
         });
-        res.redirect('/test#/playlists');
+        res.redirect('/music#/playlists');
       });
     });
   });
