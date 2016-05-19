@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html ng-app="listenToThis">
+  <head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js">
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-route.js"></script>
+    <script type="text/javascript" src="angular/app.js">
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.js">
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" type="text/css" href="./layout.css">
+  </head>
+  <body>
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Spotify player</h4>
+          </div>
+          <div class="modal-body">
+            <iframe src="https://embed.spotify.com/?uri=spotify:user:1218489850:playlist:6sBLLDG7teo6M8RCiyVygd" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand page-scroll" href="#page-top">ListenToThis</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <button id="player_btn" type="button" class="btn btn-secondary" data-backdrop="static" data-toggle="modal" data-target="#myModal">Show Player</button>
+              </li>
+              <li>
+                  <a class="page-scroll" href="#/home">Explore</a>
+              </li>
+              <li>
+                  <a class="page-scroll" href="#/playlists">Add</a>
+              </li>
+              <li>
+                  <a class="page-scroll" href="#/tracks">About</a>
+              </li>
+          </ul>
+        </div>         
+      </div>
+    </nav>
+  
+    <div id="main_container" ng-controller="myController">
+      <div id="cover_art">
+          <div id="container_1"> 
+            <div ng-repeat="track in tracks.slice(0, 16)">
+              <div ng-click="bio(track.artist_name,track.album_name,track.track_name)" class="animated {{randeff()}}" style="{{container1[$index].attributes}} background:url({{track.album_url }}); background-size:cover; position: absolute;" >
+              </div>
+            </div>
+          </div>
+          <div id="container_2">
+            <div ng-repeat="track in tracks.slice(15,31)">
+              <div ng-click="bio(track.artist_name,track.album_name,track.track_name)" class="animated {{randeff()}}" style="{{container2[$index].attributes}} background:url({{track.album_url }}); background-size:cover; position: absolute;" >
+              </div>
+            </div>
+          </div>
+          <div id="container_3">
+            <div ng-click="bio(track.artist_name,track.album_name,track.track_name)" ng-repeat="track in tracks.slice(31,47)">
+              <div class="animated {{randeff()}}" style="{{container3[$index].attributes}} background:url({{track.album_url }}); background-size:cover; position: absolute;" >
+              </div>
+            </div>
+          </div>
+      </div>
+      <div id="content">
+        <div id="bio_background">
+        </div>
+        <div id="bio">
+            <h1> {{track_name}} </h1>
+            <h2> {{album_name}} - {{artist_name}}</h2>
+            <hr class="m-y-2">
+            <p>
+              {{ artist_bio | formatText }}
+            </p>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        console.log(top);  
+        $(window).scroll(function (event) {
+          // what the y position of the scroll is
+          var y = $(this).scrollTop();
+          if (y > 0) {
+            $("#cover_art").css("position", "fixed");
+          } else {
+            $("#cover_art").css("position", "");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+
+

@@ -1,0 +1,179 @@
+.covers{
+  position: absolute;
+}
+#container_1 , #container_2 , #container_3 {
+  width: 480px;
+  height: 480px;
+  display: inline-block;
+  /*border: 2px solid black;*/
+  position: relative;
+}
+#container_2 , #container_3{
+  margin-left: -5px;
+}
+#cover_art{
+  width: 1442px;
+  margin-top: 50px;
+  height: 480px;
+  border: 2px solid red;
+  cursor: pointer;
+}
+#content {
+  z-index: 99;
+  position: absolute;
+  top: 542px;
+  width: 100%;
+  color: black;
+  font-size: 1.2em;
+  height: auto;
+  white-space: pre-wrap;
+}
+#bio_background{
+  background-color: #F8F8F8;
+  /*background-color: #677077;*/
+  opacity: .95;
+  position: absolute;
+  top : 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+#bio{
+  width: 80%;
+  margin-left: 10%;
+  line-height: 1.875em;
+  text-align: justify;
+  font-family: 'Merriweather', serif;
+/*  font-family: 'Roboto Slab', serif;
+  font-family: 'Economica', sans-serif;*/
+  font-weight: 400;
+}
+#bio.jumbotron{
+  background: none;
+}
+#main_container{
+  width: 100vw;
+  height: auto;
+  overflow: scroll;
+}
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.animated{
+  animation-duration: 2.5s;
+}
+#player_btn{
+  background-color: transparent;
+  border: 1px solid red;
+  margin-top: 10px;
+}
+#myModal{
+  width: 340px;
+  height: auto;
+}
+.modal-dialog{
+  width: 340px;
+}
+#bio > h1 {
+  margin: 0;
+}
+#bio > h2 {
+  margin: 0;
+}
+#bio > hr {
+  margin: 0;
+}
+
+
+/*-------------------------------------------playlist-------------------------------------------*/
+
+.well{
+  margin: 20px;
+}
+.well-lg{
+  background-color: black;
+  height: 420px;
+  padding: 0;
+}
+
+#playlists_container > div > div > div > h1{
+  margin-top: 0px;
+}
+
+#playlists_container{
+  width: 80%;
+  padding-top: 60px;
+}
+
+#playlists_container > h3 {
+  margin-top: 30px;
+}
+
+
+/*------------------------------------------Index-----------------------------------*/
+
+#main_banner_bg{
+  position: absolute;
+  z-index: -50;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('pic1.png');
+}
+#main_banner{
+  width: 100vw;
+  height: 100vh;
+  padding-top: 20%;
+  font-family: 'Merriweather', serif;
+  text-align: center;
+  background-color: rgba(14, 14, 14, 0.8);
+  font-size: 4em; 
+  color: white;
+}
+#main_banner > div > h1 {
+  font-size: 2em;
+}
+#main_banner > div > h1 > small {
+  font-size: .4em;
+}
+#features > div > div.page-header > h1 , #spotify_add > div > div.page-header > h1 {
+  text-align: center;
+  margin-top: 50px;
+}
+#features {
+  font-family: 'Merriweather', serif;
+  background: #06000a;
+  padding-bottom: 100px;
+}
+#features > div > div.row {
+  margin-top: 50px;
+}
+#features > div > div.page-header > h1 , #features > div > div.row > div > div > h3  {
+  color: white;
+}
+#spotify_add{ 
+}
+#spotify_add_pic{
+  background: url('pic2.png');
+  display: inline-block;
+  width: 30%;
+  height: 500px;
+  background-size: cover;
+}
+#spotify_add_description{
+  display: inline-block;
+  width: auto;
+  vertical-align: top;
+  padding-left: 50px;
+  font-size: 2em;
+  line-height: 350%;
+}
+
+
+/*---------------------------------------playlist add form----------------------------------*/
+
+#playlist_add_form{
+  width: 60%;
+}

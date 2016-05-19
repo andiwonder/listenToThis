@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="listenToThis">
+  <head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.js">
+    </script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js">
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-route.js"></script>
+    <script type="text/javascript" src="angular/app.js">
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.css">
+    <link href='https://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" type="text/css" href="./layout.css">
+  </head>
+  <body>
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Spotify player</h4>
+          </div>
+          <div class="modal-body">
+            <iframe id="spotify_player" src="https://embed.spotify.com/?uri=spotify:user:1218489850:playlist:6sBLLDG7teo6M8RCiyVygd" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+          </div>
+        </div>    
+      </div>
+    </div>
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+              <a class="navbar-brand page-scroll" href="#page-top">ListenToThis</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                  <li>
+                      <a class="page-scroll" href="#/">Home</a>
+                  </li>
+                  <li>
+                      <a class="page-scroll" href="#/playlists">Explore</a>
+                  </li>
+                  <li>
+                      <a class="page-scroll" href="/form">Add</a>
+                  </li>
+                  <li>
+                    <button id="player_btn" type="button" class="btn btn-secondary" data-backdrop="static" data-toggle="modal" data-target="#myModal">Show Player</button>
+                  </li>
+              </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+      </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+  
+    <ng-view></ng-view>
+
+
+  </body>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(window).scroll(function (event) {
+        // what the y position of the scroll is
+        var y = $(this).scrollTop();
+        if (y > 0) {
+          $("#cover_art").css("position", "fixed");
+        } else {
+          $("#cover_art").css("position", "");
+        }
+      });
+    });
+  </script>
+</html>
+
+
