@@ -94,7 +94,7 @@ app.get("/index",function(req,res){
 });
 
 app.get('/login', function(req, res) {
-  // console.log("hello! world!!!");
+  console.log(client_id);
   var state = generateRandomString(16);
   res.cookie(stateKey, state);
 
